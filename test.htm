@@ -1,0 +1,45 @@
+<html>
+<head>
+
+<style type = "text/css">
+input
+{
+	color: white;
+	background-color: 444444;
+	width: 100%;
+	border: 0px;
+}
+
+input:focus 
+{ 
+    outline:none; 
+}
+
+</style>
+<script type="text/javascript"> 
+ 
+function eventHandler(e) {
+	var evt = e || window.event;
+	//writeData(evt.type);
+
+		if(evt.keyCode == 13) 
+		{
+			alert(document.getElementById("in").value);
+			document.getElementById("in").value = ""
+		}
+	return document.defaultAction;
+}
+
+	document['onkeydown'] = eventHandler;
+
+</script>
+</head>
+<body style="background-color:444444; padding-left: 60px; padding-top: 50px;" onLoad="document.getElementById('in').focus();">
+<div style="font-family: Andale Mono, monospace; color: white; font-size: 30px;"></div>
+<INPUT type="text" id="in" name="firstname" value = "">
+hello
+<code id="lol">jutest <LOL>a test 
+</code>
+
+</body>
+</html>

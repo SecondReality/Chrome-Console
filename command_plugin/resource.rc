@@ -1,0 +1,58 @@
+#ifdef _WIN32
+#include "winver.h"
+#else
+#include "ver.h"
+#endif
+VS_VERSION_INFO     VERSIONINFO
+  FILEVERSION       1,0,0,1
+  PRODUCTVERSION    1,0,0,1
+  FILEFLAGSMASK     VS_FFI_FILEFLAGSMASK
+#ifdef _DEBUG
+  FILEFLAGS         VS_FF_DEBUG|VS_FF_PRIVATEBUILD|VS_FF_PRERELEASE
+#else
+  FILEFLAGS         0 // final version
+#endif
+#ifdef _WIN32
+  FILEOS            VOS__WINDOWS32
+#else
+  FILEOS            VOS__WINDOWS16
+#endif
+  FILETYPE          VFT_DLL
+  FILESUBTYPE       0   // not used
+BEGIN
+   BLOCK "StringFileInfo"
+   BEGIN
+#ifdef _WIN32
+      BLOCK "040904B0" // Lang=US English, CharSet=Unicode
+#else
+      BLOCK "040904E4" // Lang=US English, CharSet=Windows Multilingual
+#endif
+      BEGIN
+         VALUE "CompanyName",     "\0"
+         VALUE "FileDescription", "Run a command prompt inside Chrome\0"
+		 VALUE "MIMEType", "application/x-chromecommand\0"
+         VALUE "FileVersion",     "1.0.001\0"
+		 VALUE "FileExtents", "ccmd\0"
+		 VALUE "FileOpenName", "Chrome Commander File\0"
+         VALUE "InternalName",    "SPINDIAL\0"
+         VALUE "LegalCopyright",  "Copyright \251 1994, Microsoft Corporation\0"
+         VALUE "LegalTrademarks", "\0"
+         VALUE "OriginalFilename","SPINDIAL.DLL\0"
+         VALUE "ProductName",     "ChromeCommander\0"
+         VALUE "ProductVersion",  "1.0.001\0"
+
+         VALUE "OLESelfRegister", "\0"
+
+      END
+   END
+   BLOCK "VarFileInfo"
+   BEGIN
+#ifdef _WIN32
+      VALUE "Translation", 0x409, 1200
+         // English language (0x409) and the Unicode codepage (1200)
+#else
+      VALUE "Translation", 0x409, 1252
+         // English language (0x409) and the Windows ANSI codepage (1252)
+#endif
+   END
+END

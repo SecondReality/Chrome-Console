@@ -1,0 +1,24 @@
+Chrome Console
+
+Provides access to the Windows console from inside Google Chrome.
+
+Q.	What? Why would you do that?
+A.	Mainly because the Windows command line program (cmd.exe) isn't very good:
+	* It doesn't allow pasting by default
+	* The window isn't fully resizable
+	* Has a limited text history
+	* Has limited customisation options
+	* Doesn't have a multi-session interface (i.e. tabs)
+	This project aims to solve the above problems.
+
+Current Status of the project:
+The project is functional, but needs a lot of work doing:
+	* Testing needs to be done
+	* Code needs to be cleaned up (redundant comments removed)
+	* Code needs to be reviewed - possible memory leaks
+	* Proper acknowledgement to all sources needs to be given
+	* A lot of work needs doing on the user interface
+	* Customisation options need to be added
+	
+How to test:
+In Chrome open the extensions page, go to developer mode and choose Load unpacked extension. Select the "chrome" subdirectory.
