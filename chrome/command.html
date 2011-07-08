@@ -2,28 +2,10 @@
 <head>
 <title>Command</title> 
 
-<style type="text/css">
-input
-{
-	background-color: #2C3136;
-	width: 100%;
-	border: 0px;
-	font-family: Consolas, Andale Mono, monospace;
-	color: white;
-	font-size: small;
-	
-}
-
-input:focus 
-{ 
-    outline:none; 
-}
-</style>
-
+<link rel="stylesheet" type="text/css" href="style.css" />
 <script type="text/javascript"> 
  
- //sendString = "";
- pastCommands = [];
+pastCommands = [];
  
 function eventHandler(e) {
 	var plugin = document.getElementById("pluginId");
@@ -36,7 +18,7 @@ function eventHandler(e) {
 
 		var textField = document.getElementById("in");
 
-		document.getElementById("output").innerHTML+=textField.value;
+		//document.getElementById("output").innerHTML+=textField.value;
 		document.getElementById("output").innerHTML+="<br />";
 		
 		plugin.consoleInput(textField.value);
@@ -83,25 +65,31 @@ function eventHandler2(e)
 
 </script>
 </head>
-<body style="background-color:#2C3136; padding-left: 60px; padding-top: 50px; font-family: Consolas, Andale Mono, monospace; color: white; font-size: small;" onLoad="document.getElementById('in').focus();">
+<body onLoad="document.getElementById('in').focus();">
 
 <div id="output" style="white-space:pre;">
 
 </div>
+
+
+<div id="input-area">
+
 <input type="text" id="in">
 <embed type="application/x-chromecommand" id="pluginId" hidden="true">
 <script>
   var plugin = document.getElementById("pluginId");
-  //var result = plugin.myPluginMethod();  // call a method in your plugin
   var result = plugin.setOutputHandler(function(argument)
   {
 	document.getElementById("output").innerHTML+=argument;
 	// Scroll the page:
-	document.body.scrollTop = document.body.scrollHeight;
+	var objDiv = document.getElementById("output");
+	objDiv.scrollTop = objDiv.scrollHeight;
 	
 	document.getElementById("in").focus();
   });
   //console.log("my plugin returned: " + result);
 </script>
+
+</div>
 </body>
 </html>
