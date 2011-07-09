@@ -13,7 +13,7 @@ extern NPObject * outputHandler;
 
 void pushString(ConsoleAccess::ConsoleString& cs, const std::string& toAppend)
 {
-	for(int i=0; i<toAppend.length(); i++)
+	for(unsigned int i=0; i<toAppend.length(); i++)
 	{
 		cs.push_back(toAppend[i]);
 	}
@@ -23,7 +23,7 @@ void pushString(ConsoleAccess::ConsoleString& cs, const std::string& toAppend)
 ConsoleAccess::ConsoleString transformString(ConsoleAccess::ConsoleString& inStr)
 {
 	ConsoleAccess::ConsoleString resultString;
-	for(int i=0; i<inStr.size(); i++)
+	for(unsigned int i=0; i<inStr.size(); i++)
 	{
 		if(inStr[i]=='<')
 		{

@@ -1,5 +1,4 @@
-// command_plugin.c	pp : Defines the exported functions for the DLL application.
-//
+// command_plugin.cpp : Defines the exported functions for the DLL application.
 
 #include "stdafx.h"
 #include "ExtendedNPObject.h"
@@ -10,22 +9,16 @@
 #include<fstream> 
 #include "PluginInstance.h"
 
-NPObject *NPN_RetainObject(NPObject *npobj)
-{
-	npobj->referenceCount++;
-	return npobj;
-}
-
 void functionLog(const char * name)
 {
-	// MessageBoxA(NULL,name, "Function call", MB_OK);
+	//MessageBoxA(NULL,name, "Function call", MB_OK);
 }
 
-void writeALittle()
+NPObject *NPN_RetainObject(NPObject *npobj)
 {
-	std::fstream ss("C:/outputc.txt");
-	ss << "haha";
-	ss.close();
+	functionLog("NPP_Retain");
+	npobj->referenceCount++;
+	return npobj;
 }
 
 NPError NP_LOADDS NPP_New(NPMIMEType pluginType, NPP instance, uint16_t mode, int16_t argc, char* argn[], char* argv[], NPSavedData* saved)
@@ -103,6 +96,7 @@ NPError NPP_GetValue(NPP instance, NPPVariable variable, void *ret_value)
           //*((PRBool *)ret_value) = this-&gt;isWindowed;
           break;
       default:
+		  functionLog("NPERR_GENERIC_ERROR");
           rv = NPERR_GENERIC_ERROR;
   }
   return rv;
@@ -111,14 +105,8 @@ NPError NPP_GetValue(NPP instance, NPPVariable variable, void *ret_value)
 
 NPError NPP_SetWindow(NPP instance, NPWindow* window)
 {
-	//MessageBoxA(NULL,"1", "Window has bene set.", MB_OK);
 	PluginInstance *pluginInstance = (PluginInstance *)instance->pdata;
-	//MessageBoxA(NULL,"1123123123", "Window has bene set.", MB_OK);
-	
-	//MessageBoxA(NULL,"1123123123", "Window has bene set. sdfdsfsdfdsf", MB_OK);
-	//pluginInstance->set_window((HWND*)window->window);
 	pluginInstance->set_window((HWND)window->window);
-
 	return NPERR_NO_ERROR;
 }
 

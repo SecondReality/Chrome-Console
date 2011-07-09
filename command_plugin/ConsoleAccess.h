@@ -1,8 +1,6 @@
 #include <string>
 #include <vector>
 
-// This is a blocking function
-// The function will return when the command ends.
 class ConsoleAccess
 {
 public:
@@ -11,6 +9,7 @@ public:
 	ConsoleAccess(outputHandler);
 	~ConsoleAccess();
 
+	// This is a blocking function
 	void run();
 
 	void sendString(const ConsoleString&);

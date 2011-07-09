@@ -63,7 +63,7 @@ NPObject * outputHandler;
 ConsoleAccess::ConsoleString NPStringToConsoleString(const NPString& npString)
 {
 	ConsoleAccess::ConsoleString cs;
-	for(int i=0; i<npString.UTF8Length; i++)
+	for(unsigned int i=0; i<npString.UTF8Length; i++)
 	{
 		cs.push_back(npString.UTF8Characters[i]);
 	}
