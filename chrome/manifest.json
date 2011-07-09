@@ -1,7 +1,7 @@
 {
-  "name": "My First Extension",
+  "name": "Chrome Console",
   "version": "1.0",
-  "description": "The first extension that I made.",
+  "description": "Provides access to the Windows console",
   "background_page": "background.html",
   "browser_action": {
     "default_icon": "icon.png"
