@@ -1,95 +1,18 @@
 <html>
 <head>
-<title>Command</title> 
+	<title>Command</title> 
 
-<link rel="stylesheet" type="text/css" href="style.css" />
-<script type="text/javascript"> 
- 
-pastCommands = [];
- 
-function eventHandler(e) {
-	var plugin = document.getElementById("pluginId");
-	var evt = e || window.event;
-	//writeData(evt.type);
-	
-	//alert('charCode is ' + evt.charCode);
-	if(evt.keyCode == 13) // if enter is pressed
-	{
-
-		var textField = document.getElementById("in");
-
-		//document.getElementById("output").innerHTML+=textField.value;
-		document.getElementById("output").innerHTML+="<br />";
-		
-		plugin.consoleInput(textField.value);
-		pastCommands.push(textField.value);
-		
-		// Clear the text field:
-		textField.value="";
-	}
-	else
-	{
-		//sendString+= String.fromCharCode(evt.charCode);
-		//document.getElementById("output").innerHTML+=String.fromCharCode(evt.charCode);
-	}
-	
-	return document.defaultAction;
-}
-
-function eventHandler2(e) 
-{
-	var evt = e || window.event;
-	// If the up key is pressed replace the command with a previous one:
-	if(evt.keyCode==38 && pastCommands.length>0)
-	{
-		var textField = document.getElementById("in");
-		var findIndex = pastCommands.indexOf(textField.value);
-		if(findIndex==-1)
-		{
-			textField.value=pastCommands[ pastCommands.length -1];
-		}
-		else
-		{
-			if(findIndex==0)
-			{
-			  findIndex=pastCommands.length;
-			}
-			textField.value=pastCommands[findIndex-1];
-		}
-	}
-	return document.defaultAction;
-}
-
-	document['onkeydown'] = eventHandler2;
-	document['onkeypress'] = eventHandler;
-
-</script>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script src="jquery-1.6.1.min.js"></script>
+	<script src="command.js" type="text/javascript"></script>
 </head>
+
 <body onLoad="document.getElementById('in').focus();">
 
-<div id="output" style="white-space:pre;">
-
-</div>
-
-
+<div id="output" style="white-space:pre;"></div>
 <div id="input-area">
-
-<input type="text" id="in">
-<embed type="application/x-chromecommand" id="pluginId" hidden="true">
-<script>
-  var plugin = document.getElementById("pluginId");
-  var result = plugin.setOutputHandler(function(argument)
-  {
-	document.getElementById("output").innerHTML+=argument;
-	// Scroll the page:
-	var objDiv = document.getElementById("output");
-	objDiv.scrollTop = objDiv.scrollHeight;
-	
-	document.getElementById("in").focus();
-  });
-  //console.log("my plugin returned: " + result);
-</script>
-
+	<input type="text" id="in">
+	<embed type="application/x-chromecommand" id="pluginId" hidden="true">
 </div>
 </body>
 </html>

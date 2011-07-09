@@ -3,13 +3,17 @@ body
 	background-color:#2C3136;
 	background-color:#FEFEFE;
 	margin-left: 3%;
-	padding-top: 10px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-top: 0px;
 	font-family: Consolas, Andale Mono, monospace;
 	font-size: medium;
 }
 
 #output
 {
+	
+	top: 0px;
 	height: 800px;
 	overflow: auto;
 }
