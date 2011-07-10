@@ -1,17 +1,13 @@
 // command_plugin.cpp : Defines the exported functions for the DLL application.
-
 #include "stdafx.h"
-#include "ExtendedNPObject.h"
-
 #include <npfunctions.h>
-#define DllExport   __declspec( dllexport ) 
-
-#include<fstream> 
+#include <fstream> 
+#include "ExtendedNPObject.h"
 #include "PluginInstance.h"
 
 void functionLog(const char * name)
 {
-	//MessageBoxA(NULL,name, "Function call", MB_OK);
+	// MessageBoxA(NULL,name, "Function call", MB_OK);
 }
 
 NPObject *NPN_RetainObject(NPObject *npobj)
